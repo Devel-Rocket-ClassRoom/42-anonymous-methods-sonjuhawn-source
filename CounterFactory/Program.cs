@@ -1,14 +1,17 @@
 using System;
 
 // README.md를 읽고 아래에 코드를 작성하세요.
-Console.WriteLine("");
 
+var c = CounterFactory.CreateSimpleCounter();
+
+Console.WriteLine(c());
 class CounterFactory
 {
+    static int c1 = 1;
     public static Func<int> CreateSimpleCounter()
     {
-        int c1 = 1;
-        return delegate { return c1++; };
+        
+        return () => c1++;
     }
     public static Func<int> CreateStepCounter(int step)
     {
@@ -28,4 +31,5 @@ class CounterFactory
         }
 
     }
+
 }
